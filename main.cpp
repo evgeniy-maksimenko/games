@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <algorithm>
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 
 void herosInventory()
@@ -132,12 +134,52 @@ void herosInventory3()
     }
 }
 
+void highScores()
+{
+    vector<int>::const_iterator iter;
+    cout<<"Creating a list of scores.\n";
+    vector<int> scores;
+    scores.push_back(1500);
+    scores.push_back(3500);
+    scores.push_back(7500);
+    for(iter = scores.begin();iter != scores.end();iter++){
+        cout << *iter << endl;
+    }
+    cout<<"\nFinding a score.";
+    int score;
+    cout<<"\nEnter a score to find: ";
+    cin >> score;
+    iter = find(scores.begin(), scores.end(), score);
+    if(iter != scores.end())
+    {
+        cout << "Score found.\n";
+    }
+    else
+    {
+        cout << "Score not found.\n";
+    }
+
+    cout<<"\nRandomizing scores.\n";
+    srand(static_cast<unsigned int>(time(0)));
+    random_shuffle(scores.begin(), scores.end());
+    for(iter = scores.begin();iter != scores.end();iter++){
+        cout << *iter << endl;
+    }
+
+    cout<<"\nSorting scores.\n";
+    sort(scores.begin(), scores.end());
+    for(iter = scores.begin();iter != scores.end();iter++){
+        cout << *iter << endl;
+    }
+}
+
 
 int main()
 {
     //herosInventory();
     //ticTacToeBoard();
     //herosInventory2();
-    herosInventory3();
+    //herosInventory3();
+    highScores();
     return 0;
 }
