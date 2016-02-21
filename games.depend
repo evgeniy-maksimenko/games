@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1456059360 source:f:\projects\c++\games\games\main.cpp
+	<iostream>
+	<string>
+	<vector>
+
